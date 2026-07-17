@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg14
+    env_file: ./config/docker.env
+    volumes:
+      - tsdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  model-server:
+    build: ./model-server
+    env_file: ./config/docker.env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - timescaledb
+
+  data-fetcher:
+    build: ./data-fetcher
+    env_file: ./config/docker.env
+    depends_on:
+      - timescaledb
+
+volumes:
+  tsdata:

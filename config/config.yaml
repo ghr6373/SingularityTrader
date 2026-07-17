@@ -1,0 +1,20 @@
+# تنظیمات عمومی
+database:
+  host: ${POSTGRES_HOST}
+  port: ${POSTGRES_PORT}
+  user: ${POSTGRES_USER}
+  password: ${POSTGRES_PASSWORD}
+  dbname: ${POSTGRES_DB}
+
+model_server:
+  host: ${MODEL_SERVER_HOST}
+  port: ${MODEL_SERVER_PORT}
+  endpoint: /predict
+
+symbols:
+  - XAUUSD
+  - EURUSD
+
+timeframes:
+  - H1
+  - H4

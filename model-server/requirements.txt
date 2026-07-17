@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+pydantic
+torch
+pandas
+psycopg2-binary
+PyYAML
